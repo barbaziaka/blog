@@ -1,15 +1,15 @@
 <%= form_with model: [ @article, @article.comments.build ] do |form| %>
   <p>
-    <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
+    <%= form.label :commenter, class: "form-label" %><br>
+    <%= form.text_field :commenter, class: "form-control" %>
   </p>
   <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
+    <%= form.label :body, class: "form-label" %><br>
+    <%= form.text_area :body, class: "form-control", style: "height: 100px" %>
   </p>
   <p>
     <%= form.label :status %><br>
-    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+    <%= form.select :status, ['public', 'private', 'archived'], {selected: 'public'}, {class: "form-select"} %>
   </p>
   <p>
     <%= form.submit class: "mt-5 btn btn-success btn-lg text-decoration-none text-light"%>

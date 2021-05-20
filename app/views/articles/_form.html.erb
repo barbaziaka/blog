@@ -9,9 +9,9 @@
 
   <div>
     <%= form.label :body, class: "form-label" %><br>
-    <%= form.text_area :body, class: "form-control", style: "height: 100px" %><br>
+    <%= form.text_area :body, class: "form-control" + (article.errors.include?(:body) ? " is-invalid" : ""), style: "height: 100px" %><br>
     <% article.errors.full_messages_for(:body).each do |message| %>
-      <div><%= message %></div>
+      <div class="text-danger mb-3"><%= message %></div>
     <% end %>
   </div>
 
