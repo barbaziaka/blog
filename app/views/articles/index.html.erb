@@ -1,15 +1,27 @@
-<h1>Articles</h1>
+<div class="container">
+ <div class="mx-auto" style="width: 600px;">
+	<nav class="mt-5" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><%= link_to "Home", @article, class: "" %></li>
+      <li class="breadcrumb-item"><a href="#">Library</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Data</li>
+    </ol>
+  </nav>
 
-Our blog has <%= Article.public_count %> articles and counting!
+  <h1 class="mt-5">Articles</h1>
 
-<ul>
-  <% @articles.each do |article| %>
-    <% unless article.archived? %>
-      <li>
-        <%= link_to article.title, article %>
-      </li>
+  <p class="mt-5 fs-3"> Our blog has <%= Article.public_count %> articles and counting!</p>
+
+  <ul class="list-group mt-5">
+    <% @articles.each do |article| %>
+      <% unless article.archived? %>
+        <li class="list-group-item fs-2">
+          <%= link_to article.title, article %>
+        </li>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
 
-<%= link_to "New Article", new_article_path %>
+    <%= link_to "New Article", new_article_path, class: "mt-5 btn btn-success btn-lg fs-3 text-decoration-none text-light" %>
+  </div>
+</div>

@@ -1,16 +1,27 @@
-<h1><%= @article.title %></h1>
+<div class="container">
+  <div class="mx-auto" style="width: 600px;">
+    <nav class="mt-5" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to "Home", root_path, class: "" %></li>
+        <li class="breadcrumb-item"><a href="#">Library</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Data</li>
+      </ol>
+    </nav>
+    <h1 class="mt-5"><%= @article.title %></h1>
 
-<p><%= @article.body %></p>
+    <p class="mt-5 p-5 fs-3 border border-secondary rounded-3"><%= @article.body %></p>
 
-<ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <li><%= link_to "Destroy", article_path(@article),
+    <%= link_to "Edit", edit_article_path(@article), class: "mt-5 btn btn-success btn-lg text-decoration-none text-light" %>
+    <%= link_to "Destroy", article_path(@article),
                   method: :delete,
-                  data: { confirm: "Are you sure?" } %></li>
-</ul>
+                  data: { confirm: "Are you sure?" },
+                  class: "mt-5 ms-3 btn btn-danger btn-lg text-decoration-none text-light" %>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
+    <hr>
+    <h2 class="mt-5">Comments</h2>
+    <%= render @article.comments %>
 
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+    <h2 class="mt-5">Add a comment:</h2>
+    <%= render 'comments/form' %>
+  </div>
+</div>
